@@ -4,31 +4,33 @@
  */
 package com.github.rodrigocoutinho.aula12;
 
-import com.github.kyriosdata.parser.Lexer;
-import com.github.kyriosdata.parser.Parser;
-import com.github.kyriosdata.parser.Token;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
-/**
- *
- * @author rodrigocoutinho
- */
 public class Main {
 
-    public static void main(String[] args) {
+    /**
+     *
+     * @param args
+     * @throws FileNotFoundException
+     * @throws IOException
+     */
+    public static void main(final String[] args) throws FileNotFoundException,
+            IOException {
+        String auxiliar;
+        try {
+            if (args[0].equals("-h")) {
+                auxiliar = args[1];
+                Relatorio.gerarHTML(Arquivo.ler(auxiliar));
+            } else {
+                auxiliar = args[0];
+                Relatorio.gerarJSON(Arquivo.ler(auxiliar));
+            }
+            System.exit(1);
+        } catch (Exception erro) {
+            System.exit(0);
+        }
 
- /*       Map<String, Float> ctx = new HashMap<>();
-        ctx.put("a", 10);
-
-        List<Token> tokens = new Lexer("2.3 * a").tokenize();
-        Parser parser = new Parser(tokens);
-        float resultado = parser.expressao().valor(ctx); // 23.0
-        
-        System.out.println(resultado);
-   */
- 
     }
 
 }

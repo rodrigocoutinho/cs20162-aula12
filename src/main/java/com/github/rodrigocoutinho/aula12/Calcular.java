@@ -13,20 +13,15 @@ import java.util.List;
 public final class Calcular {
 
     /**
-     * 
      *
      * @param expressao
-     * @return 
+     * @return
      */
-    
-    public static long calc (final String expressao){
-        long resultado;
-        
+    public static float parser(final String expressao) {
         List<Token> tokens = new Lexer(expressao).tokenize();
         Parser parser = new Parser(tokens);
-        resultado = (long) parser.expressao().valor(); 
-        
-        
+        float resultado = parser.expressao().valor();
+
         return resultado;
     }
 }
