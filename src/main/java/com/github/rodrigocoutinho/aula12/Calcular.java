@@ -21,7 +21,7 @@ public final class Calcular {
 
         List<Token> tokens = new Lexer(args[0]).tokenize();
         Parser parser = new Parser(tokens);
-        float resultado = parser.expressao().valor(); // 23.0
+        float resultado = parser.expressao().valor(); 
 
         System.out.println(resultado);
     }
