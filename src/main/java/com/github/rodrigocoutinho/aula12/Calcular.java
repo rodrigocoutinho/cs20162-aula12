@@ -15,14 +15,18 @@ public final class Calcular {
     /**
      * 
      *
-     * @param args Parametros passados pela linha de comando
+     * @param expressao
+     * @return 
      */
-    public static void main(final String[] args) {
-
-        List<Token> tokens = new Lexer(args[0]).tokenize();
+    
+    public static long calc (final String expressao){
+        long resultado;
+        
+        List<Token> tokens = new Lexer(expressao).tokenize();
         Parser parser = new Parser(tokens);
-        float resultado = parser.expressao().valor(); 
-
-        System.out.println(resultado);
+        resultado = (long) parser.expressao().valor(); 
+        
+        
+        return resultado;
     }
 }
