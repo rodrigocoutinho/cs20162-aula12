@@ -13,6 +13,11 @@ import static org.junit.Assert.*;
  */
 public class CalcularTest {
 
+    @Test
+    public void testCalc() {
+        Calcular calc = new Calcular();
+    }
+
     /**
      *
      */

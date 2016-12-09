@@ -4,8 +4,17 @@
  */
 package com.github.rodrigocoutinho.aula12;
 
+import static com.github.rodrigocoutinho.aula12.Arquivo.ler;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import static java.lang.System.exit;
+import java.net.MalformedURLException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.Rule;
 
 /**
  *
@@ -16,11 +25,5 @@ public class MainTest {
     public MainTest() {
     }
 
-    /**
-     * Test of main method, of class Main.
-     */
-    @Test
-    public void testMain() throws Exception {
-    }
-    
+
 }

@@ -4,22 +4,82 @@
  */
 package com.github.rodrigocoutinho.aula12;
 
+import java.io.File;
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class RelatorioTest {
+    
+    @Test
+    public void testConstrutor(){
+        Relatorio relatorio = new Relatorio();
+    }
 
     /**
      *
+     * @throws java.lang.Exception
      */
     @Test(expected = NullPointerException.class)
-    public void testGerarHTMLErro() {
+    public void testGerarHTMLErro() throws Exception {
         List<String> linhas = null;
         Relatorio.gerarHTML(linhas);
     }
 
+    @Test(expected = NullPointerException.class)
+    public void testGeraJsonErro() throws Exception {
+        List<String> linhas = null;
+        Relatorio.gerarJSON(linhas);
+    }
+
+    @Test
+    public void relatorioHtml() throws IOException, URISyntaxException, Exception {
+        List<String> testeArq = new ArrayList<>();
+        testeArq.add("a + b; a=1, b=2; 3");
+        testeArq.add("5 / (6 - 5);;5");
+        testeArq.add("5 / (6 - 5);;4");
+        String diretorio = new File(Main.class.getProtectionDomain()
+                .getCodeSource().getLocation().toURI().getPath())
+                .getParent();
+        Path file = Paths.get(diretorio + "/teste.txt");
+        Files.write(file, testeArq, Charset.forName("UTF-8"));
+
+        List<String> linhas = testeArq;
+        Relatorio.gerarHTML(linhas);
+
+        file = Paths.get(diretorio + "/relatorio.html");
+        Files.delete(file);
+        file = Paths.get(diretorio + "/teste.txt");
+        Files.delete(file);
+    }
+
+    @Test
+    public void relatorioJSON() throws IOException, URISyntaxException, Exception {
+        List<String> testeArq = new ArrayList<>();
+        testeArq.add("a + b; a=1, b=2; 3");
+        testeArq.add("5 / (6 - 5);;5");
+        testeArq.add("5 / (6 - 5);;4");
+        String diretorio = new File(Main.class.getProtectionDomain()
+                .getCodeSource().getLocation().toURI().getPath())
+                .getParent();
+        Path file = Paths.get(diretorio + "/teste3.txt");
+        Files.write(file, testeArq, Charset.forName("UTF-8"));
+
+        List<String> linhas = testeArq;
+        Relatorio.gerarJSON(linhas);
+
+        file = Paths.get(diretorio + "/relatorio.json");
+        Files.delete(file);
+        file = Paths.get(diretorio + "/teste3.txt");
+        Files.delete(file);
+    }
     /**
      *
      */

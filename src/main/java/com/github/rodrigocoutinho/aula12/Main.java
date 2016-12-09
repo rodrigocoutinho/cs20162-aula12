@@ -17,14 +17,14 @@ public class Main {
      */
     public static void main(final String[] args) throws FileNotFoundException,
             IOException {
-        String auxiliar;
+        String tipo;
         try {
             if (args[0].equals("-h")) {
-                auxiliar = args[1];
-                Relatorio.gerarHTML(Arquivo.ler(auxiliar));
+                tipo = args[1];
+                Relatorio.gerarHTML(Arquivo.ler(tipo));
             } else {
-                auxiliar = args[0];
-                Relatorio.gerarJSON(Arquivo.ler(auxiliar));
+                tipo = args[0];
+                Relatorio.gerarJSON(Arquivo.ler(tipo));
             }
             System.exit(1);
         } catch (Exception erro) {

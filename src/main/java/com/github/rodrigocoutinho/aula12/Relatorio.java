@@ -14,17 +14,24 @@ public class Relatorio {
     /**
      *
      * @param linhas
+     * @throws java.lang.Exception
      */
-    public static void gerarHTML(final List linhas) {
+    static int gerarHTML(final List linhas) throws Exception {
         Formatter arquivo;
+        int test;
+        // retorna 1 se o relatorio for gerado.
+        // retorna 0 se nao for;
         int numLinhas = linhas.size();
         try {
-            arquivo = new Formatter("relatorio.html");
+            arquivo = new Formatter("target/relatorio.html");
             arquivo.format(html(numLinhas, linhas));
             arquivo.close();
+            test = 1;
         } catch (Exception excessao) {
-
+            test = 0;
+            throw new Exception("Não foi possivel gerar o arquivo");
         }
+        return test;
     }
 
     /**
@@ -130,8 +137,22 @@ public class Relatorio {
      *
      * @param ler
      */
-    static void gerarJSON(List<String> ler) {
-        throw new UnsupportedOperationException("Not supported yet.");
+    static int gerarJSON(List<String> linhas) throws Exception {
+        Formatter arquivo;
+        int test;
+        // retorna 1 se o relatorio for gerado.
+        // retorna 0 se nao for;
+        int numLinhas = linhas.size();
+        try {
+            arquivo = new Formatter("target/relatorio.json");
+            arquivo.format(json(numLinhas, linhas));
+            arquivo.close();
+            test = 1;
+        } catch (Exception excessao) {
+            test = 0;
+            throw new Exception("Não foi possivel gerar o arquivo");
+        }
+        return test;
     }
 
 }

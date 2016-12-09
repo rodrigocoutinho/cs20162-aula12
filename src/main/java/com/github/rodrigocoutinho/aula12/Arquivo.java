@@ -10,20 +10,22 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.net.MalformedURLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Arquivo {
-    private Arquivo(){
-    }
+
     /**
-     * 
+     *
      * @param caminho
      * @return
      * @throws FileNotFoundException
      * @throws MalformedURLException
-     * @throws IOException 
+     * @throws IOException
      */
     public static List<String> ler(final String caminho)
-            throws FileNotFoundException, MalformedURLException, IOException {
+            throws FileNotFoundException, MalformedURLException, IOException,
+            NullPointerException {
         try {
             List<String> linhas = new ArrayList<>();
             Scanner leitor = new Scanner(new FileReader(caminho));
@@ -31,7 +33,7 @@ public class Arquivo {
                 linhas.add(leitor.nextLine());
             }
             return linhas;
-            
+
         } catch (Exception e) {
             URL oracle = new URL(caminho);
             try (BufferedReader br = new BufferedReader(
@@ -49,5 +51,5 @@ public class Arquivo {
                 return tests;
             }
         }
-    }   
+    }
 }
