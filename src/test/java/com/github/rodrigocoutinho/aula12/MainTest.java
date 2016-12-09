@@ -4,26 +4,21 @@
  */
 package com.github.rodrigocoutinho.aula12;
 
-import static com.github.rodrigocoutinho.aula12.Arquivo.ler;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import static java.lang.System.exit;
 import java.net.MalformedURLException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import org.junit.Test;
-import static org.junit.Assert.*;
-import org.junit.Rule;
 
 /**
  *
  * @author Shakaw
  */
 public class MainTest {
-    
-    public MainTest() {
-    }
 
+    /**
+     * Instancia a classe
+     */
+    @Test
+    public void testM() {
+        Main m = new Main();
+    }
 
 }

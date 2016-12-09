@@ -10,8 +10,9 @@ import java.io.IOException;
 public class Main {
 
     /**
+     * Recebe argumento e gera relatorio.
      *
-     * @param args
+     * @param args argumento passado pelo usuario.
      * @throws FileNotFoundException
      * @throws IOException
      */

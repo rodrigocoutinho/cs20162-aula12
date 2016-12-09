@@ -12,9 +12,11 @@ import java.util.regex.Pattern;
 public class Relatorio {
 
     /**
+     * Baseada em uma lista de instrução retorna um relatorio.
      *
-     * @param linhas
-     * @throws java.lang.Exception
+     * @param linhas String com a linha da instrução lida
+     * @return retorna Int 1 para relatorio gerado e 0 para erro.
+     * @throws Exception
      */
     static int gerarHTML(final List linhas) throws Exception {
         Formatter arquivo;
@@ -35,10 +37,11 @@ public class Relatorio {
     }
 
     /**
+     * Recebe uma lista e de String e retorna a lista processada.
      *
-     * @param numLinhas
-     * @param linhas
-     * @return
+     * @param numLinhas Inteiro com o numero da linha.
+     * @param linhas String do que foi lido na linha.
+     * @return String com todos os strings passados.
      */
     public static String json(final int numLinhas,
             final List<String> linhas) {
@@ -79,10 +82,11 @@ public class Relatorio {
     }
 
     /**
+     * Modelo do relatorio html.
      *
-     * @param numLinhas
-     * @param linhas
-     * @return
+     * @param numLinhas Int da linha que foi lida
+     * @param linhas Lista com as linhas do arquivo lidas.
+     * @return processamento do relatorio.
      */
     public static String html(final int numLinhas, final List linhas) {
         String parte1, parte2, parte3, parte4, parte5, parte6, parte7 = "",
@@ -134,8 +138,11 @@ public class Relatorio {
     }
 
     /**
+     * Baseada em uma lista de instrução retorna um relatorio.
      *
-     * @param ler
+     * @param linhas String com a linha da instrução lida
+     * @return retorna Int 1 para relatorio gerado e 0 para erro.
+     * @throws Exception
      */
     static int gerarJSON(List<String> linhas) throws Exception {
         Formatter arquivo;

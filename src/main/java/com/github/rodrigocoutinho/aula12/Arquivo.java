@@ -16,9 +16,11 @@ import java.util.logging.Logger;
 public class Arquivo {
 
     /**
+     * Metodo recebe um link local ou online e retorna uma lista da leitura
+     * feita.
      *
-     * @param caminho
-     * @return
+     * @param caminho local ou link do arquivo onde esta armazenado a lista.
+     * @return a leitura do arquivo
      * @throws FileNotFoundException
      * @throws MalformedURLException
      * @throws IOException

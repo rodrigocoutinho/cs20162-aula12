@@ -17,15 +17,19 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class RelatorioTest {
-    
+
+    /**
+     * Inicializa classe.
+     */
     @Test
-    public void testConstrutor(){
+    public void testClass() {
         Relatorio relatorio = new Relatorio();
     }
 
     /**
+     * Testa erro para gerar o relatorio html.
      *
-     * @throws java.lang.Exception
+     * @throws Exception
      */
     @Test(expected = NullPointerException.class)
     public void testGerarHTMLErro() throws Exception {
@@ -33,12 +37,24 @@ public class RelatorioTest {
         Relatorio.gerarHTML(linhas);
     }
 
+    /**
+     * Testa erro para gerar o relatorio json.
+     *
+     * @throws Exception
+     */
     @Test(expected = NullPointerException.class)
     public void testGeraJsonErro() throws Exception {
         List<String> linhas = null;
         Relatorio.gerarJSON(linhas);
     }
 
+    /**
+     * Testa o metodo que gera o relatorio html.
+     *
+     * @throws IOException
+     * @throws URISyntaxException
+     * @throws Exception
+     */
     @Test
     public void relatorioHtml() throws IOException, URISyntaxException, Exception {
         List<String> testeArq = new ArrayList<>();
@@ -60,6 +76,13 @@ public class RelatorioTest {
         Files.delete(file);
     }
 
+    /**
+     * Testa o metodo que gera o relatorio json.
+     *
+     * @throws IOException
+     * @throws URISyntaxException
+     * @throws Exception
+     */
     @Test
     public void relatorioJSON() throws IOException, URISyntaxException, Exception {
         List<String> testeArq = new ArrayList<>();
@@ -80,8 +103,9 @@ public class RelatorioTest {
         file = Paths.get(diretorio + "/teste3.txt");
         Files.delete(file);
     }
+
     /**
-     *
+     * Testa o processamento html.
      */
     @Test
     public void testHtml() {
@@ -109,7 +133,7 @@ public class RelatorioTest {
     }
 
     /**
-     *
+     * Testa o processamento json.
      */
     @Test
     public void testJson() {

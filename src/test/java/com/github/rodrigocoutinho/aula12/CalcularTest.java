@@ -13,13 +13,16 @@ import static org.junit.Assert.*;
  */
 public class CalcularTest {
 
+    /**
+     * Inicializa a classe.
+     */
     @Test
     public void testCalc() {
         Calcular calc = new Calcular();
     }
 
     /**
-     *
+     * Compara a saida e o processamento.
      */
     @Test(expected = IllegalArgumentException.class)
     public void testParserNullArgs() {
@@ -27,7 +30,7 @@ public class CalcularTest {
     }
 
     /**
-     *
+     * testa uma expressão vazia.
      */
     @Test(expected = IllegalArgumentException.class)
     public void testParserExpressaoVazia() {
@@ -35,7 +38,7 @@ public class CalcularTest {
     }
 
     /**
-     *
+     * Testa o parser.
      */
     @Test
     public void testParser() {

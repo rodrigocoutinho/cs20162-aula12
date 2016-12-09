@@ -13,9 +13,10 @@ import java.util.List;
 public final class Calcular {
 
     /**
+     * Recebe uma expressao e retorna o resultado.
      *
-     * @param expressao
-     * @return
+     * @param expressao expressão matematica a ser processada.
+     * @return retorna o resultado da expressão matematica.
      */
     public static float parser(final String expressao) {
         List<Token> tokens = new Lexer(expressao).tokenize();
